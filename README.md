@@ -1,1 +1,1 @@
-# gtest
+Test sandbox for roguelike in Godot.
