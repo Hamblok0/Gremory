@@ -14,6 +14,14 @@ config/name="test"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/unsafe_property_access=2
+gdscript/warnings/unsafe_method_access=2
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_call_argument=2
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0666667, 0.0156863, 0.152941, 1)
