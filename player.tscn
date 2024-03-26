@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://clqd3b8kopht2"]
+[gd_scene load_steps=3 format=3 uid="uid://clqd3b8kopht2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_yta2r"]
+[ext_resource type="Texture2D" uid="uid://8hdpcl7xdr6x" path="res://tiles.png" id="2_o3u3n"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_yta2r")
 
-[node name="Tile" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_o3u3n")
+region_enabled = true
+region_rect = Rect2(32, 96, 32, 32)
