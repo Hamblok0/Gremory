@@ -19,5 +19,5 @@ func _process(delta: float) -> void:
 
 func spawn_player() -> void:
 	var player: Player = player_scene.instantiate()
-	add_child(player)	
-	
+	player.modulate = Color(0.478, 0, 0.478) 
+	add_child(player)

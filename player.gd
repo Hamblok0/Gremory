@@ -2,11 +2,10 @@ extends Node2D
 
 class_name Player
 
-var grid_move: GridMove
+@onready var grid_move: GridMove = $GridMove
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	grid_move = $GridMove
 	position = Vector2(7, 0) * Constants.TILE_SIZE	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

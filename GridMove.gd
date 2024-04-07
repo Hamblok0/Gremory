@@ -5,6 +5,8 @@ class_name GridMove
 @export var speed: float = 0.35
 
 var moving: bool = false
+@onready var ray_cast: RayCast2D = $RayCast2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,11 +19,14 @@ func _process(delta: float) -> void:
 
 func move(direction: Vector2) -> void: 
 	if !moving:
-		moving = true
-		var new_pos: Vector2 = self_node.global_position + (direction * Constants.TILE_SIZE)
-		var transition: Tween = create_tween()
-
-		transition.tween_property(self_node, "position", new_pos, speed).set_trans(Tween.TRANS_LINEAR)
-		transition.tween_callback(func() -> void: moving = false)	
+		ray_cast.target_position = direction * Constants.TILE_SIZE
+		ray_cast.force_raycast_update()
+		
+		if !ray_cast.is_colliding():
+			moving = true
+			var new_pos: Vector2 = self_node.global_position + (direction * Constants.TILE_SIZE)
+			var transition: Tween = create_tween()
+			transition.tween_property(self_node, "position", new_pos, speed).set_trans(Tween.TRANS_LINEAR)
+			transition.tween_callback(func() -> void: moving = false)	
 	
 	
