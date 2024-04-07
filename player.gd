@@ -3,14 +3,17 @@ extends Node2D
 class_name Player
 
 @onready var grid_move: GridMove = $GridMove
-
+@onready var tiles: TileMap = get_node("../Tiles") 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	position = Vector2(7, 0) * Constants.TILE_SIZE	
+	position = starting_pos()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	handle_movement()	
+
+func starting_pos() -> Vector2:
+	return tiles.map_to_local(Vector2i(7, 0)) 
 
 func handle_movement() -> void:
 	var pos: Vector2 = Vector2.ZERO

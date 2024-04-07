@@ -2,7 +2,7 @@ extends Node2D
 
 class_name GridMove
 @export var self_node: Node2D
-@export var speed: float = 0.35
+@export var speed: float = 0.25
 
 var moving: bool = false
 @onready var ray_cast: RayCast2D = $RayCast2D
@@ -21,7 +21,7 @@ func move(direction: Vector2) -> void:
 	if !moving:
 		ray_cast.target_position = direction * Constants.TILE_SIZE
 		ray_cast.force_raycast_update()
-		
+
 		if !ray_cast.is_colliding():
 			moving = true
 			var new_pos: Vector2 = self_node.global_position + (direction * Constants.TILE_SIZE)
