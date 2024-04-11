@@ -2,7 +2,7 @@ extends Node2D
 
 class_name GridMove
 @export var self_node: Node2D
-@export var speed: float = 0.25
+@export var speed: float = 0.11
 
 var moving: bool = false
 @onready var ray_cast: RayCast2D = $RayCast2D
@@ -27,6 +27,8 @@ func move(direction: Vector2) -> void:
 			var new_pos: Vector2 = self_node.global_position + (direction * Constants.TILE_SIZE)
 			var transition: Tween = create_tween()
 			transition.tween_property(self_node, "position", new_pos, speed).set_trans(Tween.TRANS_LINEAR)
-			transition.tween_callback(func() -> void: moving = false)	
+			transition.tween_callback(func() -> void: 
+				await get_tree().create_timer(0.1).timeout 
+				moving = false)	
 	
 	
