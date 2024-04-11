@@ -41,5 +41,6 @@ func handle_movement() -> void:
 
 	if pos != Vector2.ZERO:
 		grid_move.move(pos)
+
 	
 

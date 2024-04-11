@@ -21,12 +21,14 @@ func move(direction: Vector2) -> void:
 	if !moving:
 		ray_cast.target_position = direction * Constants.TILE_SIZE
 		ray_cast.force_raycast_update()
+		var collider := ray_cast.get_collider()
+		print_debug(collider)
 
 		if !ray_cast.is_colliding():
 			moving = true
 			var new_pos: Vector2 = self_node.global_position + (direction * Constants.TILE_SIZE)
 			var transition: Tween = create_tween()
-			transition.tween_property(self_node, "position", new_pos, speed).set_trans(Tween.TRANS_LINEAR)
+			transition.tween_property(self_node, "position", new_pos, speed).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 			transition.tween_callback(func() -> void: 
 				await get_tree().create_timer(0.1).timeout 
 				moving = false)	
