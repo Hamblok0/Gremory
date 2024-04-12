@@ -14,3 +14,5 @@ region_rect = Rect2(32, 96, 32, 32)
 
 [node name="GridMove" parent="." node_paths=PackedStringArray("self_node") instance=ExtResource("3_r1ssf")]
 self_node = NodePath("..")
+
+[node name="PlayerCam" type="Camera2D" parent="."]
