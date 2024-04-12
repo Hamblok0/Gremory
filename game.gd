@@ -1,13 +1,6 @@
 extends Node2D
 
 var player_scene: PackedScene = preload("res://player.tscn")
-const layers: Dictionary = {
-	"floor": 0,
-	"wall": 1,
-	"water": 2,
-	"fire": 3,
-	"player": 4
-}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -5,8 +5,12 @@ class_name GridMove
 @export var speed: float = 0.11
 
 var moving: bool = false
-@onready var ray_cast: RayCast2D = $RayCast2D
+var target: Vector2 
+var new_pos: Vector2 
+var map_pos: Vector2 
 
+@onready var ray_cast: RayCast2D = $RayCast2D
+@onready var tiles: TileMap = get_node("../../Tiles") 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,18 +23,27 @@ func _process(delta: float) -> void:
 
 func move(direction: Vector2) -> void: 
 	if !moving:
-		ray_cast.target_position = direction * Constants.TILE_SIZE
+		target = direction * Constants.TILE_SIZE	
+		new_pos = self_node.global_position + (direction * Constants.TILE_SIZE)
+		map_pos = tiles.local_to_map(new_pos)
+		ray_cast.target_position = target 
 		ray_cast.force_raycast_update()
-		var collider := ray_cast.get_collider()
-		print_debug(collider)
+		
+		if ray_cast.is_colliding():
+			var tile_data: TileData = tiles.get_cell_tile_data(Constants.layers.wall, map_pos)
+			if tile_data:
+				var door: Variant = tile_data.get_custom_data("Door")
+				if door:
+					tiles.set_cell(Constants.layers.wall, map_pos, 0, Constants.atlas.opened_door)	
+					move_tween()	
+		else:
+			move_tween()	
 
-		if !ray_cast.is_colliding():
-			moving = true
-			var new_pos: Vector2 = self_node.global_position + (direction * Constants.TILE_SIZE)
-			var transition: Tween = create_tween()
-			transition.tween_property(self_node, "position", new_pos, speed).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-			transition.tween_callback(func() -> void: 
-				await get_tree().create_timer(0.1).timeout 
-				moving = false)	
-	
-	
+func move_tween() -> void:
+	moving = true
+	var transition: Tween = create_tween()
+	transition.tween_property(self_node, "position", new_pos, speed).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	transition.tween_callback(func() -> void: 
+		self_node.global_position = new_pos
+		await get_tree().create_timer(0.1).timeout 
+		moving = false)

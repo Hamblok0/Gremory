@@ -70,6 +70,11 @@ player_downleft={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Wall"
+2d_physics/layer_2="Door"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0666667, 0.0156863, 0.152941, 1)
