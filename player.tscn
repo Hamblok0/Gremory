@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://clqd3b8kopht2"]
+[gd_scene load_steps=5 format=3 uid="uid://clqd3b8kopht2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_yta2r"]
 [ext_resource type="Texture2D" uid="uid://8hdpcl7xdr6x" path="res://tiles.png" id="2_o3u3n"]
 [ext_resource type="PackedScene" uid="uid://be2qhhxflgl01" path="res://grid_move.tscn" id="3_r1ssf"]
+[ext_resource type="Texture2D" uid="uid://blksy3uynqfwa" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="4_qdr13"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_yta2r")
@@ -15,4 +16,19 @@ region_rect = Rect2(32, 96, 32, 32)
 [node name="GridMove" parent="." node_paths=PackedStringArray("self_node") instance=ExtResource("3_r1ssf")]
 self_node = NodePath("..")
 
-[node name="PlayerCam" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="texture" type="PointLight2D" parent="Node2D"]
+color = Color(0.792157, 0.372549, 0, 1)
+energy = 3.47
+shadow_item_cull_mask = 0
+texture = ExtResource("4_qdr13")
+
+[node name="shadow" type="PointLight2D" parent="Node2D"]
+color = Color(0.792157, 0.372549, 0, 1)
+energy = 2.21
+shadow_enabled = true
+texture = ExtResource("4_qdr13")
+texture_scale = 1.18
