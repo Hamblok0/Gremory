@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8hdpcl7xdr6x"
-path="res://.godot/imported/tiles.png-20e12ed313f9b52ca4483ea23302e684.ctex"
+uid="uid://lial8t3pc45d"
+path="res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-b9f441b1136a34baf97ca871a7375b47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles.png"
-dest_files=["res://.godot/imported/tiles.png-20e12ed313f9b52ca4483ea23302e684.ctex"]
+source_file="res://resources/textures/2d_lights_and_shadows_neutral_point_light.webp"
+dest_files=["res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-b9f441b1136a34baf97ca871a7375b47.ctex"]
 
 [params]
 
