@@ -14,5 +14,4 @@ layer_3/tile_data = PackedInt32Array()
 layer_5/tile_data = PackedInt32Array()
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.133333, 0.164706, 0.341176, 1)
+color = Color(0.137255, 0.172549, 0.352941, 1)
