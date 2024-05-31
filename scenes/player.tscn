@@ -22,15 +22,16 @@ self_node = NodePath("..")
 
 [node name="texture" type="PointLight2D" parent="Torch"]
 color = Color(0.792157, 0.372549, 0, 1)
-energy = 4.12
-shadow_item_cull_mask = 0
+energy = 2.64
+shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_qdr13")
-texture_scale = 1.18
+texture_scale = 1.17
 
 [node name="shadow" type="PointLight2D" parent="Torch"]
 color = Color(0.792157, 0.372549, 0, 1)
 energy = 3.98
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
+shadow_item_cull_mask = 2
 texture = ExtResource("4_qdr13")
-texture_scale = 1.18
+texture_scale = 2.64
