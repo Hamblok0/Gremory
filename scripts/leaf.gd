@@ -4,10 +4,10 @@ class_name Leaf
 
 var left: Leaf
 var right: Leaf
-var position: Vector2
-var size: Vector2
+var position: Vector2i
+var size: Vector2i
 
-func _init(position: Vector2, size: Vector2) -> void:
+func _init(position: Vector2i, size: Vector2i) -> void:
     self.position = position
     self.size = size
 
