@@ -7,9 +7,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func generate_dungeon() -> void:
-	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-
-	self.clear()
-
