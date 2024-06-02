@@ -20,7 +20,7 @@ func get_leaves() -> Array:
 
 func split(remaining: int) -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	var split_percent: int = rng.randf_range(0.3, 0.7)
+	var split_percent: float = rng.randf_range(0.3, 0.7)
 	var split_horiz: bool = size.y >= size.x
 
 	if (split_horiz):

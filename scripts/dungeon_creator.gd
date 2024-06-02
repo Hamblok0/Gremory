@@ -8,6 +8,7 @@ var root_node: Leaf
 
 func _ready() -> void:
 	root_node = Leaf.new(Vector2i(0, 0), Vector2i(60, 30))
+	root_node.split(5)
 	queue_redraw()
 	pass
 
