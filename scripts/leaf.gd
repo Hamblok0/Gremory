@@ -34,7 +34,7 @@ func split(remaining: int) -> void:
 			Vector2i(size.x, size.y - left_height)
 		)
 	else:
-		var left_width: int = int(size.y * split_percent)
+		var left_width: int = int(size.x * split_percent)
 		left = Leaf.new(position, Vector2i(left_width, size.y))
 		right = Leaf.new(
 			Vector2i(position.x + left_width, position.y),

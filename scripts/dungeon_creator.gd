@@ -34,10 +34,11 @@ func _draw() -> void:
             Color.GREEN, # colour
             false # is filled
         )
+		
 		for x in range(leaf.size.x):
 			for y in range(leaf.size.y):
 				if not is_inside_padding(x, y, leaf, padding):
-					tilemap.set_cell(0, Vector2i(x + leaf.size.x, y + leaf.size.y), 0, Constants.atlas.floor1)
+					tilemap.set_cell(0, Vector2i(x + (leaf.position.x), y + leaf.position.y), 0, Constants.atlas.floor1)
 	pass
 
 func is_inside_padding(x: int, y: int, leaf: Leaf, padding: Vector4i) -> bool:
