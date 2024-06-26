@@ -40,10 +40,12 @@ func split(remaining: int, paths: Array) -> void:
 			Vector2i(position.x + left_width, position.y),
 			Vector2i(size.x - left_width, size.y)
 		)
-	
+
+	paths.push_back({'left': left.get_center(), 'right': right.get_center()})
+
 	if (remaining > 0):
-		left.split(remaining - 1)
-		right.split(remaining - 1)
+		left.split(remaining - 1, paths)
+		right.split(remaining - 1, paths)
 	pass
 
 func get_center() -> Vector2i:

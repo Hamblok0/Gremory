@@ -41,6 +41,14 @@ func _draw() -> void:
 			for y in range(leaf.size.y):
 				if not is_inside_padding(x, y, leaf, padding):
 					tilemap.set_cell(0, Vector2i(x + (leaf.position.x), y + leaf.position.y), 0, Constants.atlas.floor1)
+
+		for path: Dictionary in paths:
+			if path['left'].y == path['right'].x:
+				for i in range(path['right'].x - path['left'].y):
+					tilemap.set_cell(0, Vector2i(path['left'].x as int + i, path['left'].y as int), 0, Constants.atlas.floor1)
+			else:
+				for i in range(path['right'].y - path['left'].y):
+					tilemap.set_cell(0, Vector2i(path['left'].x as int, path['left'].y as int + i), 0, Constants.atlas.floor1)
 	pass
 
 func is_inside_padding(x: int, y: int, leaf: Leaf, padding: Vector4i) -> bool:
