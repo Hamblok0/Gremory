@@ -18,7 +18,7 @@ func get_leaves() -> Array:
 	else:
 		return left.get_leaves() + right.get_leaves()
 
-func split(remaining: int) -> void:
+func split(remaining: int, paths: Array) -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	var split_percent: float = rng.randf_range(0.3, 0.7)
 	var split_horiz: bool = size.y >= size.x
@@ -45,3 +45,6 @@ func split(remaining: int) -> void:
 		left.split(remaining - 1)
 		right.split(remaining - 1)
 	pass
+
+func get_center() -> Vector2i:
+	return Vector2i(position.x + size.x / 2, position.y + size.y / 2)
