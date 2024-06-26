@@ -43,8 +43,8 @@ func _draw() -> void:
 					tilemap.set_cell(0, Vector2i(x + (leaf.position.x), y + leaf.position.y), 0, Constants.atlas.floor1)
 
 		for path: Dictionary in paths:
-			if path['left'].y == path['right'].x:
-				for i in range(path['right'].x - path['left'].y):
+			if path['left'].y == path['right'].y:
+				for i in range(path['right'].x - path['left'].x):
 					tilemap.set_cell(0, Vector2i(path['left'].x as int + i, path['left'].y as int), 0, Constants.atlas.floor1)
 			else:
 				for i in range(path['right'].y - path['left'].y):
