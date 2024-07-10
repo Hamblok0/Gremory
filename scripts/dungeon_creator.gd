@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name DungeonCreator
+
 @export var map_size: Vector2i = Vector2i(150, 150)
 @export var room_max: Vector2i = Vector2(20, 20)
 @export var room_min: Vector2i = Vector2(5, 5)

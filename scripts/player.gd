@@ -4,15 +4,16 @@ class_name Player
 
 @onready var grid_move: GridMove = $GridMove
 @onready var tiles: TileMap = get_node("../Tiles") 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	position = starting_pos()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	handle_movement()	
 
-func starting_pos() -> Vector2:
+func starting_pos(pos: Vector2i) -> void:
 	return tiles.map_to_local(Vector2i(7, 0)) 
 
 func handle_movement() -> void:
