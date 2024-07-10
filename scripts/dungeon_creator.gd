@@ -32,16 +32,16 @@ func _draw() -> void:
 			rng.randi_range(2,3)
 		)
 
-		# draw_rect(
-        #     Rect2(
-        #         leaf.position.x * Constants.TILE_SIZE,
-        #         leaf.position.y * Constants.TILE_SIZE,
-        #         leaf.size.x * Constants.TILE_SIZE,
-        #         leaf.size.y * Constants.TILE_SIZE
-        #     ), 
-        #     Color.GREEN, # colour
-        #     false # is filled
-        # )
+		draw_rect(
+            Rect2(
+                leaf.position.x * Constants.TILE_SIZE,
+                leaf.position.y * Constants.TILE_SIZE,
+                leaf.size.x * Constants.TILE_SIZE,
+                leaf.size.y * Constants.TILE_SIZE
+            ), 
+            Color.GREEN, # colour
+            false # is filled
+        )
 
 		for x in range(leaf.size.x):
 			for y in range(leaf.size.y):

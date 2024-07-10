@@ -21,6 +21,8 @@ func spawn_player() -> void:
 	var starting_room: Leaf = rooms[rng.randi_range(0, rooms.size() - 1)]
 	var center: Vector2i = starting_room.get_center()
 
-	player.position = Vector2i(center.x * Constants.TILE_SIZE, center.y * Constants.TILE_SIZE)
+	# For some reason, player position has to be offset by half the tilesize. I suspect the padding in dungeon creator is causing this issue
+	# but for now, just gonna use this temporary fix
+	player.position = Vector2i((center.x * Constants.TILE_SIZE) + 16, (center.y * Constants.TILE_SIZE) + 16)
 	player.modulate = Color(0.478, 0, 0.478) 
 	add_child(player)
