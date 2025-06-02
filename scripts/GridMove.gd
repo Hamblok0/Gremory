@@ -10,7 +10,7 @@ var new_pos: Vector2
 var map_pos: Vector2 
 
 @onready var ray_cast: RayCast2D = $RayCast2D
-@onready var walls: TileMapLayer = $l1.get_node("Wall") 
+@onready var gmap: Map = get_node("../../l1") 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 	pass
 
 func move(direction: Vector2) -> void: 
+	var walls: TileMapLayer = gmap.get_node("Wall")
 	if !moving:
 		target = direction * Constants.TILE_SIZE	
 		new_pos = self_node.global_position + (direction * Constants.TILE_SIZE)
